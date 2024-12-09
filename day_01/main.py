@@ -8,7 +8,6 @@ def read_input() -> tuple[list, list]:
     list_a, list_b = [], []
     with open (PATH + "/input.txt", "r") as file:
         for line in file.readlines():
-            
             list_a.append(int(line.replace('\n','').split('   ')[0]))
             list_b.append(int(line.replace('\n','').split('   ')[1]))
 
