@@ -40,7 +40,29 @@ def part_1() -> int:
 
     return valid
 
+def is_line_valid(line) -> bool:
+    return (is_asceding(line) or is_descending(line)) and is_distance_valid(0, 3, line)
+     
+
+
+def part_2() -> int:
+    input = read_input()
+    valid = 0
+
+    for line in input:
+        if is_line_valid(line):
+            valid += 1
+        else:
+            # All posible permutations removing 1 element
+            for i in range(len(line)):
+                if is_line_valid(line[:i] + line[i+1:]):
+                    valid +=1
+                    break
+
+    return valid
+
 
 
 if __name__ == "__main__":
     print(part_1())
+    print(part_2())
